@@ -10,6 +10,8 @@ public class User {
     @Excel(name = "年龄")
     private int age;
 
+
+
     /**
      * 性别 0-女 1-男
      */
@@ -58,6 +60,13 @@ public class User {
     }
 
     public User(String name, int age, int gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    public User(String id, String name, int age, int gender) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.gender = gender;

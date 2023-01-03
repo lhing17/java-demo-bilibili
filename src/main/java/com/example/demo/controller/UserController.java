@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -21,5 +23,15 @@ public class UserController {
     @GetMapping("/getUserType")
     public Integer getUserType(String userId) {
         return userService.getUserType(userId);
+    }
+
+    @GetMapping("/v1/user/{id}")
+    public User getById1(@PathVariable String id) {
+        return userService.getByUserId1(id);
+    }
+
+    @GetMapping("/v2/user/{id}")
+    public User getById2(@PathVariable String id) {
+        return userService.getByUserId2(id);
     }
 }

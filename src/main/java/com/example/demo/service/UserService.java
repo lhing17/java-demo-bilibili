@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.dao.UserDao;
+import com.example.demo.datasource.UsingDataSource;
 import com.example.demo.model.User;
 import com.example.demo.model.UserTypeEnum;
 import org.springframework.stereotype.Service;
@@ -13,23 +15,23 @@ public class UserService {
     @Resource
     HttpServletRequest request;
 
+    @Resource
+    UserDao userDao;
+
     public String getUser() {
         System.out.println(request.getParameter("name"));
         return "user";
     }
 
 
-    public User getByUserId(String userId) {
-        if ("1".equals(userId)) {
-            return new User("张三", 15, 1);
-        } else if ("2".equals(userId)) {
-            return new User("李四", 20, 1);
-        } else if ("3".equals(userId)) {
-            return new User("王五", 70, 1);
-        }
+    @UsingDataSource("ds1")
+    public User getByUserId1(String userId) {
+        return userDao.getById(Integer.parseInt(userId));
+    }
 
-        return null;
-
+    @UsingDataSource("ds2")
+    public User getByUserId2(String userId) {
+        return userDao.getById(Integer.parseInt(userId));
     }
 
     public Integer getUserType(String userId) {
@@ -50,7 +52,7 @@ public class UserService {
     }
 
     private User getUser(String userId) {
-        User user = getByUserId(userId);
+        User user = getByUserId1(userId);
         if (user == null) {
             throw new RuntimeException("未找到用户");
         }

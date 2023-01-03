@@ -14,14 +14,25 @@ public class TestModelConverter {
     public static void main(String[] args) {
 
         // 给定User的List，转换为UserDto的List
-        List<User> users = List.of(new User("张三", 18, 1),
+        List<User> users = new ArrayList<>(List.of(new User("张三", 18, 1),
                 new User("李四", 29, 0),
                 new User("王五", 20, 1),
                 new User("赵六", 20, 0),
                 new User("田七", 20, 1),
                 new User("孙八", 23, 0),
                 new User("周九", 26, 1),
-                new User("吴十", 25, 0));
+                new User("吴十", 25, 0)));
+
+        users.add(new User("张三", 20, 1));
+
+        try {
+            User user = new User("张三", 20, 1);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println();
+
 
 
         List<UserDto> userDtos = users.stream()
