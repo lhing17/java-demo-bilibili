@@ -8,14 +8,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.annotation.Resource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 class UserServiceTest {
 
     @Resource
-    UserService userService;
+    UserServiceImpl userService;
 
     @Test
     void getUserType() {

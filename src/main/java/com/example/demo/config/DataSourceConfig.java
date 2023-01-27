@@ -51,9 +51,6 @@ public class DataSourceConfig {
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(DynamicDataSource dynamicDataSource) throws IOException {
 
-
-
-
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 
         /** 设置mybatis configuration 扫描路径 */
