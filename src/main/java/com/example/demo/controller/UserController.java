@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.datasource.UsingDataSource;
+import com.example.demo.exception.GseinException;
+import com.example.demo.model.Result;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import com.example.demo.service.UserServiceImpl;
@@ -19,7 +21,10 @@ public class UserController {
 
     @GetMapping("/user")
     public String user(HttpServletRequest request) {
-        return userService.getUser();
+
+            throw new GseinException("请求获取用户信息失败");
+
+//        return userService.getUser();
     }
 
     @GetMapping("/getUserType")

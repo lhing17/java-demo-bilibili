@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dao.UserDao;
 import com.example.demo.datasource.UsingDataSource;
+import com.example.demo.exception.GseinException;
 import com.example.demo.model.User;
 import com.example.demo.model.UserTypeEnum;
 import org.springframework.aop.framework.AopContext;
@@ -22,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String getUser() {
         System.out.println(request.getParameter("name"));
-        return "user";
+        throw new GseinException("Service层异常");
     }
 
 
