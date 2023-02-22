@@ -21,7 +21,8 @@ public class UserController {
 
     @GetMapping("/user")
     public String user(HttpServletRequest request) {
-
+        System.out.println("abc");
+        System.out.println("abc");
             throw new GseinException("请求获取用户信息失败");
 
 //        return userService.getUser();

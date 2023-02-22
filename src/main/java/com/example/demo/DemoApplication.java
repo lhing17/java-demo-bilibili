@@ -14,7 +14,21 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "./code");
+
+        System.setProperty("spring.devtools.restart.enabled", "false");
+
+
+
         SpringApplication.run(DemoApplication.class, args);
+
+    }
+
+    /**
+     * 读取文件夹中所有文件的
+     */
+    public static void readFiles(String path) {
+        // 遍历path
+
     }
 
 }
